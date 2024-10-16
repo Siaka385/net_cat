@@ -1,9 +1,12 @@
 package servers
 
-func WelcomeMessage() string {
-	userList := "Current users: "
+import (
+	"strings"
+	"time"
+)
 
-	return userList + "Welcome to TCP-Chat!\n" +
+func WelcomeMessage() string {
+	welcomemessage := "Welcome to TCP-Chat!\n" +
 		"         _nnnn_\n" +
 		"        dGGGGMMb\n" +
 		"       @p~qp~~qMb\n" +
@@ -21,4 +24,19 @@ func WelcomeMessage() string {
 		"\\____   )MMMMMP|   .'\n" +
 		"     -'       --'\n" +
 		"[ENTER YOUR NAME]:"
+
+	return welcomemessage
+}
+
+func LoadPreviousChats() string {
+	prevoiusmessage := strings.Join(UserMessages, "\n")
+
+	return prevoiusmessage
+}
+
+func MessageFormat(m string) string {
+	times := time.Now()
+	formartTime := times.Format("[2006-01-02 15:04:05]")
+
+	return formartTime + "[" + m + "]" + ":"
 }
