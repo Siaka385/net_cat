@@ -72,10 +72,10 @@ func HandleDisconnection(conn net.Conn) {
 	conn.Close()
 }
 
-func HandleFullConnection(conn net.Conn) {
+func HandleServerFull(conn net.Conn) {
 	mu.Lock()
 	defer mu.Unlock()
 
-	conn.Write([]byte("The server is currently full"))
+	conn.Write([]byte("The server is currently full\n"))
 	conn.Close()
 }

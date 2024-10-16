@@ -33,10 +33,6 @@ func Connection(port string) {
 	for {
 
 		conn, err := listener.Accept()
-		if clientCount == 3 {
-			go HandleFullConnection(conn)
-		}
-
 		if err != nil {
 			fmt.Println("error")
 			continue
